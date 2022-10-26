@@ -13,6 +13,7 @@ type Reservation struct {
 	StartTime   int64   `json:"startTime"`
 	EndTime     int64   `json:"endTime"`
 	CourtName   string  `json:"courtName"`
+	Price       float64 `json:"price"`
 }
 
 var CourtsList = []Courts{
