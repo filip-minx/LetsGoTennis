@@ -15,6 +15,7 @@ func main() {
 	router.GET("api/reservations", api.GetReservations)
 	router.GET("api/courts", api.GetCourts)
 	router.DELETE("api/reservations/:id", api.DeleteReservation)
+	router.GET("api/reservations/:id", api.GetReservationId)
 
 	router.Run("localhost:8080")
 }

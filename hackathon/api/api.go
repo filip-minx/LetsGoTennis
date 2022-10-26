@@ -60,7 +60,16 @@ func GetReservations(c *gin.Context) {
 }
 
 func GetReservationId(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, Reservations)
+	id32, err := strconv.Atoi(c.Param("id"))
+	var id = int64(id32)
+
+	fmt.Println(err)
+
+	var matchingReservation = FirstOrDefault(Reservations, func(r *Reservation) bool {
+		return id == r.ID
+	})
+	c.IndentedJSON(http.StatusOK, matchingReservation)
+
 }
 
 func FirstOrDefault[T any](slice []T, filter func(*T) bool) (element *T) {
