@@ -12,6 +12,7 @@ func main() {
 
 	router := gin.Default()
 	router.GET("api/courts", api.GetCourts)
+	router.GET("api/reservations", api.GetReservations)
 
 	api.Reservations = append(
 		api.Reservations,

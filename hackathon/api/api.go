@@ -9,3 +9,7 @@ import (
 func GetCourts(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, CourtsList)
 }
+
+func GetReservations(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, Reservations)
+}
