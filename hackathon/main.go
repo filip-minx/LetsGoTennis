@@ -11,7 +11,7 @@ import (
 func main() {
 
 	router := gin.Default()
-	router.POST("api/reservations", api.GetCourts)
+	router.POST("api/reservations", api.PostReservation)
 	router.GET("api/reservations", api.GetReservations)
 
 	router.Run("localhost:8080")
