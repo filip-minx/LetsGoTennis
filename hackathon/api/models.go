@@ -8,10 +8,11 @@ type Courts struct {
 }
 
 type Reservation struct {
-	Phone       float64 `json:"id"`
-	PeopleCount float64 `json:"name"`
-	StartTime   float64 `json:"price"`
-	EndTime     float64 `json:"price"`
+	Phone       float64 `json:"phone"`
+	PlayerCount float64 `json:"playerCount"`
+	StartTime   float64 `json:"startTime"`
+	EndTime     float64 `json:"endTime"`
+	CourtName   string  `json:"courtName"`
 }
 
 var CourtsList = []Courts{
