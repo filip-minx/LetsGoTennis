@@ -12,6 +12,7 @@ func main() {
 
 	router := gin.Default()
 	router.POST("api/reservations", api.GetCourts)
+	router.GET("api/reservations", api.GetReservations)
 
 	router.Run("localhost:8080")
 }

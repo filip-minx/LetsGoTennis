@@ -23,3 +23,7 @@ func PostReservation(c *gin.Context) {
 	Reservations = append(Reservations, newReservation)
 	c.IndentedJSON(http.StatusCreated, newReservation)
 }
+
+func GetReservations(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, Reservations)
+}
