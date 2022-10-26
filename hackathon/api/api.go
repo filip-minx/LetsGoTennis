@@ -59,6 +59,10 @@ func GetReservations(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, Reservations)
 }
 
+func GetReservationId(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, Reservations)
+}
+
 func FirstOrDefault[T any](slice []T, filter func(*T) bool) (element *T) {
 
 	for i := 0; i < len(slice); i++ {
