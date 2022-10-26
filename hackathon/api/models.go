@@ -8,6 +8,7 @@ type Court struct {
 }
 
 type Reservation struct {
+	ID          int64   `json:"id"`
 	Phone       float64 `json:"phone"`
 	PlayerCount float64 `json:"playerCount"`
 	StartTime   int64   `json:"startTime"`

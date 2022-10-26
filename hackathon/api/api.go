@@ -1,7 +1,9 @@
 package api
 
 import (
+	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,7 +18,7 @@ func PostReservation(c *gin.Context) {
 	if err := c.BindJSON(&newReservation); err != nil {
 		return
 	}
-
+	newReservation.ID = newReservation.StartTime
 	court := FirstOrDefault(CourtsList, func(p *Court) bool {
 		return p.Name == newReservation.CourtName
 	})
@@ -79,4 +81,33 @@ func Where[T any](slice []T, filter func(*T) bool) []T {
 	}
 
 	return ret
+}
+
+func DeleteReservation(c *gin.Context) {
+	id32, err := strconv.Atoi(c.Param("id"))
+	var id = int64(id32)
+
+	fmt.Println(err)
+
+	var matchingReservation = FirstOrDefault(Reservations, func(r *Reservation) bool {
+		return id == r.ID
+	})
+
+	var deleteIndex = IndexOf(Reservations, *matchingReservation)
+
+	Reservations = remove(Reservations, deleteIndex)
+
+}
+
+func remove[T any](slice []T, s int) []T {
+	return append(slice[:s], slice[s+1:]...)
+}
+
+func IndexOf[T comparable](collection []T, el T) int {
+	for i, x := range collection {
+		if x == el {
+			return i
+		}
+	}
+	return -1
 }

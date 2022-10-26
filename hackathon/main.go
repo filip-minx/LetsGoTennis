@@ -14,6 +14,7 @@ func main() {
 	router.POST("api/reservations", api.PostReservation)
 	router.GET("api/reservations", api.GetReservations)
 	router.GET("api/courts", api.GetCourts)
+	router.DELETE("api/reservations/:id", api.DeleteReservation)
 
 	router.Run("localhost:8080")
 }
