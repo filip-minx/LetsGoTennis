@@ -7,9 +7,9 @@ type courts struct {
 	Price float64 `json:"price"`
 }
 
-type reservation struct {
-	Phone       string  `json:"id"`
-	PeopleCount string  `json:"name"`
+type Reservation struct {
+	Phone       float64 `json:"id"`
+	PeopleCount float64 `json:"name"`
 	StartTime   float64 `json:"price"`
 	EndTime     float64 `json:"price"`
 }
@@ -20,3 +20,5 @@ var CourtsList = []courts{
 	{ID: "3", Name: "Clay", Price: 9.99},
 	{ID: "1", Name: "Ice", Price: 19.99},
 }
+
+var Reservations []Reservation
